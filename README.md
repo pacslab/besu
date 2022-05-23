@@ -3,7 +3,7 @@ This reproducible respository contains the source codes, scripts, and experiment
 
 ## Content
 * [caliper-benchmarks](/caliper-benchmarks): scripts for running tests with Caliper
-* [data](/data): all test results discussed in the paper
+* [data](/data): all the test results and logs discussed in the paper
 * [deploy](/deploy): scripts for deploying the Besu network on OpenStack
 * [load-balancing](/load-balancing): load balancer configurations
 * [src](/src): scripts for analyzing the results
