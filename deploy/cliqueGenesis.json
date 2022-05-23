@@ -1,0 +1,70 @@
+{
+    "config":{
+      "chainId":1337,
+      "muirglacierblock": 0,
+      "clique":{
+        "blockperiodseconds": 1,
+        "epochlength":30000
+      }
+    },
+    "coinbase":"0x0000000000000000000000000000000000000000",
+    "difficulty":"0x1",
+    "extraData":"0x000000000000000000000000000000000000000000000000000000000000000058c7782730e249079f4a2de307b0a19c2003d83a6482a4e19e5283527021f216be6f918e22ac7657b2aa8fc874ea493e524992ded67ee40af4240342b080c5db05bf8f3ef17aeb889189c5abc92914a70000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "gasLimit":"0x1fffffffffffff",
+    "contractSizeLimit": 2147483647,
+    "mixHash":"0x0000000000000000000000000000000000000000000000000000000000000000",
+    "nonce":"0x0",
+    "timestamp":"0x5c51a607",
+    "alloc" : {
+      "fe3b557e8fb62b89f4916b721be55ceb828dbd73" : {
+        "privateKey" : "8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63",
+        "comment" : "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance" : "10000000000000000000000"
+      },
+      "627306090abaB3A6e1400e9345bC60c78a8BEf57" : {
+        "privateKey" : "c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3",
+        "comment" : "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance" : "20000000000000000000000"
+      },
+      "212C6dc2c64D5134aee566d761fF49009C02D97e" : {
+        "privateKey" : "7f02f664c60f04101f9d518b360a5987e92caf83ae6fa163eeccca7c35ae79fa",
+        "comment" : "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance" : "30000000000000000000000"
+      },
+      "0BCf26e7fbf1061403ab4B4308DBb9299A1da707" : {
+        "privateKey" : "3a01e8c66059cc6e47e37fc1847c9ee5067c91f804cd09e5ea2de891b50eb43a",
+        "comment" : "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance" : "40000000000000000000000"
+      },
+      "B58e984728ED1D1Db3B9ca88849b5cF393699677" : {
+        "privateKey" : "f9de6db2429159ea2b7c5590e1ca0dfe8ba15cb3cdcd46246c56892a7ad71db5",
+        "comment" : "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance" : "50000000000000000000000"
+      },
+      "4f395cCCd5d039aD79df1Fb68625E54E23f01d83" : {
+        "privateKey" : "6363e6f931ad790066be6cf6f84f9a5330461957b7007d9130bbc00e012d67c9",
+        "comment" : "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance" : "60000000000000000000000"
+      },
+      "e1E72CCF77450f43370ae7312933b0A0c6A7A651" : {
+        "privateKey" : "2de3e10a11c01118862f6d106512d6025a1c8ab9731e930bb4faf20a868b354c",
+        "comment" : "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance" : "70000000000000000000000"
+      },
+      "355bC28a0eaee946C169df7A801623f3f6Af7B81" : {
+        "privateKey" : "d219d5823d09dba82a5da4261b9d9c6d84ae522114c958311665204e20337ad7",
+        "comment" : "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance" : "80000000000000000000000"
+      },
+      "8d99DE09916B459545CFD9e1e4f9f03E634daf96" : {
+        "privateKey" : "4d065dc958ef3f8f292ddfa3c1280b47e8e9875a06968a07a70c199b9438a628",
+        "comment" : "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance" : "90000000000000000000000"
+      },
+      "f83D5aCb2DCBDbBE081407bA7113d7adb7aC6835" : {
+        "privateKey" : "c42860ede970d7d50e3deda234776bd85d972335263033594dbb2587c964e637",
+        "comment" : "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+        "balance" : "100000000000000000000000"
+      }
+    }
+  }

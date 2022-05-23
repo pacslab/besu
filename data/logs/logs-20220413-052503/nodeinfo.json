@@ -1,0 +1,28 @@
+{
+    "nodeinfo": [
+        [
+            "besu-4",
+            "192.168.226.225",
+            "2201b8f8-dd5b-41c0-ae93-cbfa148cff87",
+            "d7f9f77057f19ef7cf34fb7c6ecee437675ce49eb0adb30256c4306f"
+        ],
+        [
+            "besu-3",
+            "192.168.226.84",
+            "0cda7b5a-80db-4197-b16f-03f1c76ab252",
+            "1effe73957c230ff80f185758bf4c4f17af9380c6503ef319a1396da"
+        ],
+        [
+            "besu-2",
+            "192.168.226.102",
+            "9c4adf72-9eef-426a-ba28-7cab53de609d",
+            "7fe404fabadc35aaea4cb68e0b5227ef83bd74d3dbaf114bb1f930b4"
+        ],
+        [
+            "besu-1",
+            "192.168.226.95",
+            "fcc33634-f918-4fa8-8888-0ee1fc9a375b",
+            "2ed8bf2dd3714658310e71d67d69f95a2784cfe7c118632317f19304"
+        ]
+    ]
+}

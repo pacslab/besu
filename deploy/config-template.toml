@@ -1,0 +1,32 @@
+logging="DEBUG"
+identity="node1"
+data-path="/opt/besu/data"
+genesis-file="/config/genesis.json"
+nat-method="AUTO"
+host-allowlist=["*"]
+min-gas-price=0
+
+# P2P related
+
+p2p-host="192.168.226.147"
+p2p-port=30303
+
+# RPC related
+
+rpc-http-enabled=true
+rpc-http-host="0.0.0.0"
+rpc-http-port=8545
+rpc-http-api=["ADMIN", "IBFT", "QBFT", "CLIQUE", "ETH", "NET", "TXPOOL", "WEB3"]
+rpc-http-cors-origins=["all"]
+
+rpc-ws-enabled=true
+rpc-ws-host="0.0.0.0"
+rpc-ws-max-active-connections=100
+rpc-ws-port=8546
+rpc-ws-api=["ADMIN", "IBFT", "QBFT", "CLIQUE", "ETH", "NET", "TXPOOL", "WEB3"]
+
+# monitoring
+# metrics-enabled=true
+metrics-push-enabled=true
+metrics-push-port=9091
+# metrics-push-host="0.0.0.0"

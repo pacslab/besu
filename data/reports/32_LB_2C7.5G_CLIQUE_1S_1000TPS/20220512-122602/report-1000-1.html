@@ -1,0 +1,397 @@
+<!doctype html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script>
+    function plotChart(divId, chartData) {
+        // Convert from stringified html, to valid JSON
+        const chartDetails = JSON.parse(chartData.replace(/&quot;/g,'"'));
+        new Chart(document.getElementById(divId), {
+            type: chartDetails.type,
+            data: {
+                labels: chartDetails.labels,
+                datasets: chartDetails.datasets
+            },
+            options: {
+                legend: { display: chartDetails.legend },
+                title: {
+                    display: true,
+                    text: chartDetails.title
+                }
+            }
+        });
+    }
+</script>
+<html>
+<head>
+    <title>Hyperledger Caliper Report</title>
+    <meta charset="UTF-8"/>
+    <style type="text/css">
+        .left-column {
+            position: fixed;
+            width:20%;
+        }
+        .left-column ul {
+            display: block;
+            padding: 0;
+            list-style: none;
+            border-bottom: 1px solid #d9d9d9;
+            font-size: 14px;
+        }
+        .left-column h2{
+            font-size: 24px;
+            font-weight: 400;
+            margin-block-end: 0.5em;
+        }
+        .left-column h3{
+            font-size: 18px;
+            font-weight: 400;
+            margin-block-end: 0.5em;
+        }
+        .left-column li{
+            margin-left: 10px;
+            margin-bottom: 5px;
+            color: #5e6b73;
+        }
+        .right-column {
+            margin-left: 22%;
+            width:60%;
+        }
+        .right-column table {
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        .right-column h2{
+            font-weight: 400;
+        }
+        .right-column h3{
+            font-weight: 400;
+        }
+        .right-column h4 {
+            font-weight: 400;
+            margin-block-end: 0;
+        }
+        .right-column th {
+            border-width: 1px;
+            font-size: small;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #f2f2f2;
+        }
+        .right-column td {
+            border-width: 1px;
+            font-size: small;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+            font-weight: 400;
+        }
+        .tag {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+        }
+        pre {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+            overflow:auto;
+            max-height:300px;
+            font-size:12px;
+        }
+        .charting {
+            display:flex;
+            flex-direction:row;
+            flex-wrap: wrap;
+            page-break-inside: auto;
+        }
+        .chart {
+            display:flex;
+            flex:1;
+            max-width: 50%;
+        }
+    </style>
+</head>
+<body style="font-family: IBM Plex Sans; font-weight: 200;">
+    <main>
+        <div class="left-column">
+            <img src="https://hyperledger.github.io/caliper/assets/img/hyperledger_caliper_logo_color.png" style="width:95%;" alt="">
+            <ul>
+                <h3>&nbspBasic information</h3>
+                <li>DLT: &nbsp<span style="font-weight: 500;">ethereum</span></li>
+                <li>Name: &nbsp<span style="font-weight: 500;">simple</span></li>
+                <li>Description: &nbsp<span style="font-weight: 500;">This is an example benchmark for Caliper, to test the backend DLT&#39;s performance with simple account opening &amp; querying transactions.</span></li>
+                <li>Benchmark Rounds: &nbsp<span style="font-weight: 500;">3</span></li>
+                <li><a href="#benchmarkInfo">Details</a></li>
+            </ul>
+            <ul>
+                <h3>&nbspBenchmark results</h3>
+                <li><a href="#benchmarksummary">Summary</a></li>
+                    <li><a href="#open">open</a></li>
+                    <li><a href="#query">query</a></li>
+                    <li><a href="#transfer">transfer</a></li>
+            </ul>
+            <ul>
+                <h3>&nbspSystem under test</h3>
+                <li><a href="#sutdetails">Details</a></li>
+            </ul>
+        </div>
+
+        <div class="right-column">
+            <h1 style="padding-top: 3em; font-weight: 500;">Caliper report</h1>
+            <div style="border-bottom: 1px solid #d9d9d9; margin-bottom: 10px;" id="benchmarksummary">
+                <table style="min-width: 100%;">
+                    <h3>Summary of performance metrics</h3>
+                    <tr>
+                         <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
+                    </tr>
+
+                    <tr>
+                         <td>open</td> <td>1000</td> <td>0</td> <td>978.5</td> <td>9.22</td> <td>3.45</td> <td>5.78</td> <td>99.4</td>
+                    </tr>
+                    <tr>
+                         <td>query</td> <td>1000</td> <td>0</td> <td>961.5</td> <td>0.07</td> <td>0.00</td> <td>0.01</td> <td>959.7</td>
+                    </tr>
+                    <tr>
+                         <td>transfer</td> <td>1000</td> <td>0</td> <td>983.3</td> <td>4.35</td> <td>1.56</td> <td>3.25</td> <td>191.7</td>
+                    </tr>
+                </table>
+            </div>
+            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="open">
+                <h2>Benchmark round: open</h2>
+                <p>Test description for the opening of an account through the deployed contract, default tps&#x3D;50.</p>
+                <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
+  type: fixed-rate
+  opts:
+    tps: 1000
+</pre>
+                        <h3>Performance metrics for open</h3>
+                            <table style="min-width: 100%;">
+                                <tr>
+                                     <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
+                                </tr>
+                                <tr>
+                                     <td>open</td> <td>1000</td> <td>0</td> <td>978.5</td> <td>9.22</td> <td>3.45</td> <td>5.78</td> <td>99.4</td>
+                                </tr>
+                            </table>
+                        <h3>Resource utilization for open</h3>
+                            <h4>Resource monitor: docker</h4>
+                            <table style="min-width: 100%;">
+                                <tr>
+                                <table>
+                                    <tr>
+                                         <th>Name</th> <th>CPU%(max)</th> <th>CPU%(avg)</th> <th>Memory(max) [MB]</th> <th>Memory(avg) [MB]</th> <th>Traffic In [B]</th> <th>Traffic Out [B]</th> <th>Disc Write [B]</th> <th>Disc Read [KB]</th>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.155&#x2F;besu-1</td> <td>204.66</td> <td>56.68</td> <td>453</td> <td>440</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.36&#x2F;besu-2</td> <td>202.84</td> <td>58.63</td> <td>604</td> <td>541</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.227&#x2F;besu-3</td> <td>190.27</td> <td>57.88</td> <td>457</td> <td>445</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.75&#x2F;besu-4</td> <td>197.70</td> <td>57.09</td> <td>479</td> <td>465</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.215&#x2F;besu-5</td> <td>203.30</td> <td>62.73</td> <td>482</td> <td>472</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.62&#x2F;besu-6</td> <td>191.90</td> <td>56.38</td> <td>473</td> <td>466</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.119&#x2F;besu-7</td> <td>200.43</td> <td>58.46</td> <td>487</td> <td>476</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.208&#x2F;besu-8</td> <td>199.91</td> <td>59.21</td> <td>560</td> <td>548</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.226&#x2F;besu-9</td> <td>206.02</td> <td>88.04</td> <td>448</td> <td>436</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>8.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.20&#x2F;besu-10</td> <td>207.23</td> <td>64.61</td> <td>529</td> <td>519</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.154&#x2F;besu-11</td> <td>181.76</td> <td>69.65</td> <td>539</td> <td>483</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.151&#x2F;besu-12</td> <td>180.70</td> <td>59.39</td> <td>510</td> <td>496</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.146&#x2F;besu-13</td> <td>205.30</td> <td>58.98</td> <td>488</td> <td>454</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.105&#x2F;besu-14</td> <td>206.87</td> <td>65.14</td> <td>575</td> <td>566</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.102&#x2F;besu-15</td> <td>206.60</td> <td>58.60</td> <td>439</td> <td>429</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.177&#x2F;besu-16</td> <td>193.46</td> <td>55.14</td> <td>560</td> <td>550</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.248&#x2F;besu-17</td> <td>206.14</td> <td>94.39</td> <td>669</td> <td>576</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>68.0</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.120&#x2F;besu-18</td> <td>188.84</td> <td>54.87</td> <td>530</td> <td>489</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.217&#x2F;besu-19</td> <td>193.43</td> <td>56.64</td> <td>549</td> <td>540</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.235&#x2F;besu-20</td> <td>208.04</td> <td>65.48</td> <td>668</td> <td>659</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.192&#x2F;besu-21</td> <td>205.17</td> <td>67.42</td> <td>477</td> <td>457</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.150&#x2F;besu-22</td> <td>205.19</td> <td>95.75</td> <td>771</td> <td>629</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>68.0</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.95&#x2F;besu-23</td> <td>208.11</td> <td>57.56</td> <td>465</td> <td>453</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.171&#x2F;besu-24</td> <td>210.39</td> <td>63.25</td> <td>517</td> <td>503</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.30&#x2F;besu-25</td> <td>194.85</td> <td>59.81</td> <td>493</td> <td>483</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.42&#x2F;besu-26</td> <td>210.93</td> <td>75.92</td> <td>485</td> <td>471</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.242&#x2F;besu-27</td> <td>174.45</td> <td>57.56</td> <td>525</td> <td>511</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.254&#x2F;besu-28</td> <td>206.41</td> <td>62.45</td> <td>486</td> <td>464</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.33&#x2F;besu-29</td> <td>208.74</td> <td>96.37</td> <td>445</td> <td>418</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>8.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.214&#x2F;besu-30</td> <td>210.08</td> <td>60.80</td> <td>410</td> <td>401</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>8.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.27&#x2F;besu-31</td> <td>193.33</td> <td>104.09</td> <td>479</td> <td>468</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                         <td>192.168.226.28&#x2F;besu-32</td> <td>208.03</td> <td>69.54</td> <td>597</td> <td>586</td> <td>0.00</td> <td>0.00</td> <td>0.00</td> <td>0.00</td>
+                                    </tr>
+                                </table>
+                                </tr>
+                            </table>
+                            <div class="charting">
+                            </div>
+            </div>
+
+            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="query">
+                <h2>Benchmark round: query</h2>
+                <p>Test description for the query performance of the deployed contract, default tps&#x3D;100.</p>
+                <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
+  type: fixed-rate
+  opts:
+    tps: 1000
+</pre>
+                        <h3>Performance metrics for query</h3>
+                            <table style="min-width: 100%;">
+                                <tr>
+                                     <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
+                                </tr>
+                                <tr>
+                                     <td>query</td> <td>1000</td> <td>0</td> <td>961.5</td> <td>0.07</td> <td>0.00</td> <td>0.01</td> <td>959.7</td>
+                                </tr>
+                            </table>
+                        <h3>Resource utilization for query</h3>
+            </div>
+
+            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="transfer">
+                <h2>Benchmark round: transfer</h2>
+                <p>Test description for transfering money between accounts, default tps&#x3D;5.</p>
+                <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">rateControl:
+  type: fixed-rate
+  opts:
+    tps: 1000
+</pre>
+                        <h3>Performance metrics for transfer</h3>
+                            <table style="min-width: 100%;">
+                                <tr>
+                                     <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate (TPS)</th> <th>Max Latency (s)</th> <th>Min Latency (s)</th> <th>Avg Latency (s)</th> <th>Throughput (TPS)</th>
+                                </tr>
+                                <tr>
+                                     <td>transfer</td> <td>1000</td> <td>0</td> <td>983.3</td> <td>4.35</td> <td>1.56</td> <td>3.25</td> <td>191.7</td>
+                                </tr>
+                            </table>
+                        <h3>Resource utilization for transfer</h3>
+            </div>
+
+            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;">
+                <h2>Test Environment</h2>
+                <h3>benchmark config</h3>
+                <pre id="benchmarkInfo" style="overflow: visible;white-space: pre-wrap;max-height:100%;">name: simple
+description: &gt;-
+  This is an example benchmark for Caliper, to test the backend DLT&#39;s
+  performance with simple account opening &amp; querying transactions.
+workers:
+  type: local
+  number: 5
+rounds:
+  - label: open
+    description: &gt;-
+      Test description for the opening of an account through the deployed
+      contract, default tps&#x3D;50.
+    txNumber: 1000
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 1000
+    workload:
+      module: benchmarks&#x2F;scenario&#x2F;simple&#x2F;open.js
+      arguments:
+        initialMoney: 10000
+        moneyToTransfer: 100
+        numberOfAccounts: 1000
+  - label: query
+    description: &gt;-
+      Test description for the query performance of the deployed contract,
+      default tps&#x3D;100.
+    txNumber: 1000
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 1000
+    workload:
+      module: benchmarks&#x2F;scenario&#x2F;simple&#x2F;query.js
+      arguments:
+        initialMoney: 10000
+        moneyToTransfer: 100
+        numberOfAccounts: 1000
+  - label: transfer
+    description: &#39;Test description for transfering money between accounts, default tps&#x3D;5.&#39;
+    txNumber: 1000
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 1000
+    workload:
+      module: benchmarks&#x2F;scenario&#x2F;simple&#x2F;transfer.js
+      arguments:
+        initialMoney: 10000
+        moneyToTransfer: 100
+        numberOfAccounts: 1000
+        money: 100
+</pre>
+                <h3>SUT</h3>
+                <pre id="sutdetails">not provided</pre>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

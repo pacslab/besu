@@ -1,0 +1,91 @@
+simpleArgs: &id001
+    initialMoney: 10000
+    moneyToTransfer: 100
+    numberOfAccounts: 2000
+test:
+    name: simple
+    description: This is an example benchmark for Caliper, to test the backend DLT's
+        performance with simple account opening & querying transactions.
+    workers:
+        type: local
+        number: 10
+    rounds:
+    -   label: open
+        description: Test description for the opening of an account through the deployed
+            contract, default tps=50.
+        txNumber: 2000
+        rateControl:
+            type: fixed-rate
+            opts:
+                tps: 1000
+        workload:
+            module: benchmarks/scenario/simple/open.js
+            arguments: *id001
+    -   label: query
+        description: Test description for the query performance of the deployed contract,
+            default tps=100.
+        txNumber: 2000
+        rateControl:
+            type: fixed-rate
+            opts:
+                tps: 1000
+        workload:
+            module: benchmarks/scenario/simple/query.js
+            arguments: *id001
+    -   label: transfer
+        description: Test description for transfering money between accounts, default
+            tps=5.
+        txNumber: 2000
+        rateControl:
+            type: fixed-rate
+            opts:
+                tps: 1000
+        workload:
+            module: benchmarks/scenario/simple/transfer.js
+            arguments:
+                initialMoney: 10000
+                moneyToTransfer: 100
+                numberOfAccounts: 2000
+                money: 100
+monitors:
+    resource:
+    -   module: docker
+        options:
+            interval: 5
+            containers:
+            - http://192.168.226.99:2375/besu-1
+            - http://192.168.226.95:2375/besu-2
+            - http://192.168.226.27:2375/besu-3
+            - http://192.168.226.71:2375/besu-4
+            - http://192.168.226.205:2375/besu-5
+            - http://192.168.226.184:2375/besu-6
+            - http://192.168.226.24:2375/besu-7
+            - http://192.168.226.76:2375/besu-8
+            - http://192.168.226.33:2375/besu-9
+            - http://192.168.226.244:2375/besu-10
+            - http://192.168.226.128:2375/besu-11
+            - http://192.168.226.174:2375/besu-12
+            - http://192.168.226.161:2375/besu-13
+            - http://192.168.226.84:2375/besu-14
+            - http://192.168.226.134:2375/besu-15
+            - http://192.168.226.96:2375/besu-16
+            - http://192.168.226.253:2375/besu-17
+            - http://192.168.226.140:2375/besu-18
+            - http://192.168.226.194:2375/besu-19
+            - http://192.168.226.92:2375/besu-20
+            - http://192.168.226.206:2375/besu-21
+            - http://192.168.226.136:2375/besu-22
+            - http://192.168.226.188:2375/besu-23
+            - http://192.168.226.54:2375/besu-24
+            - http://192.168.226.104:2375/besu-25
+            - http://192.168.226.179:2375/besu-26
+            - http://192.168.226.241:2375/besu-27
+            - http://192.168.226.30:2375/besu-28
+            - http://192.168.226.22:2375/besu-29
+            - http://192.168.226.37:2375/besu-30
+            - http://192.168.226.165:2375/besu-31
+            - http://192.168.226.150:2375/besu-32
+            - http://192.168.226.226:2375/besu-33
+            - http://192.168.226.181:2375/besu-34
+            - http://192.168.226.167:2375/besu-35
+            - http://192.168.226.122:2375/besu-36

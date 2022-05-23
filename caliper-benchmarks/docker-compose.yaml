@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+    caliper:
+        container_name: caliper
+        image: hyperledger/caliper:0.4.2
+        command: launch manager
+        environment:
+          - CALIPER_BIND_SUT=besu:1.4
+          - CALIPER_BENCHCONFIG=benchmarks/scenario/simple/config.yaml
+          - CALIPER_NETWORKCONFIG=networks/ibft2/networkconfig.json
+        volumes:
+          - .:/hyperledger/caliper/workspace
