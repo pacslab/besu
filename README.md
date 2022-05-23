@@ -29,5 +29,8 @@ Removed for the double blind review process
 ## Citation
 Removed for the double blind review process
 
+## Acknowledgement
+Removed for the double blind review process
+
 ## License
 Removed for the double blind review process
