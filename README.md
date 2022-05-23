@@ -14,7 +14,7 @@ This reproducible respository contains the source codes, scripts, and experiment
 
 All scripts are designed to be run on Ubuntu 20.04.
 
-The file `[requirements.txt](./requirements.txt)` contains the Python packages used in this project. Please use the following command to install all the required dependencies.
+The file [`requirements.txt`](./requirements.txt) contains the Python packages used in this project. Please use the following command to install all the required dependencies.
 
 ```
 pip install -r requirements.txt
