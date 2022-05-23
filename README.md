@@ -21,7 +21,7 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-Each directory contains one or more self-explanatory Jupyter Notebooks. Please follow the instructions in the notebooks to reproduce the results.
+The directories [`caliper-benchmarks`](/caliper-benchmarks) and [`src`](/src) contains self-explanatory Jupyter Notebooks. Please follow the instructions in the notebooks to reproduce the results.
 
 ## Abstract
 Removed for the double blind review process
