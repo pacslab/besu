@@ -3,7 +3,7 @@ This reproducible respository contains the source codes, scripts, and experiment
 
 ## Content
 * [caliper-benchmarks](/caliper-benchmarks): scripts for running tests with Caliper
-* [data](/data): all the test results and logs discussed in the paper
+* [data](/data): the test results discussed in the paper. The Besu DEBUG logs analyzed in the paper are publicly avaiable on [Zenodo](https://zenodo.org/record/6578138#.Yo1QUuxMFQJ).
 * [deploy](/deploy): scripts for deploying the Besu network on OpenStack
 * [load-balancing](/load-balancing): load balancer configurations
 * [src](/src): scripts for analyzing the results
@@ -21,7 +21,9 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-The directories [`caliper-benchmarks`](/caliper-benchmarks) and [`src`](/src) contain self-explanatory Jupyter Notebooks. Please follow the instructions in the notebooks to reproduce the results.
+* Clone the reproducible repository.
+* Download the Besu logs from [Zenodo](https://zenodo.org/record/6578138#.Yo1QUuxMFQJ) and place them in [`data`](/data).
+* The directories [`caliper-benchmarks`](/caliper-benchmarks) and [`src`](/src) contain self-explanatory Jupyter Notebooks. Please follow the instructions in the notebooks to reproduce the results.
 
 ## Abstract
 Removed for the double blind review process
