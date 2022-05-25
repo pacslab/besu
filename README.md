@@ -3,7 +3,7 @@ This reproducible respository contains the source codes, scripts, and experiment
 
 ## Content
 * [caliper-benchmarks](/caliper-benchmarks): scripts for running tests with Caliper
-* [data](/data): the test results discussed in the paper. The Besu DEBUG logs analyzed in the paper are publicly avaiable on [Zenodo](https://zenodo.org/record/6578138#.Yo1QUuxMFQJ).
+* [data](/data): the test results discussed in the paper. The Besu DEBUG logs analyzed in the paper are publicly available on [Zenodo](https://zenodo.org/record/6578138#.Yo1QUuxMFQJ).
 * [deploy](/deploy): scripts for deploying the Besu network on OpenStack
 * [load-balancing](/load-balancing): load balancer configurations
 * [src](/src): scripts for analyzing the results
