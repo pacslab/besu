@@ -30,10 +30,19 @@ In this work, we present a set of comprehensive experimental studies on Hyperled
 Our findings shed some light on further performance improvement of Hyperledger Besu. The identified bottlenecks and root cause analysis provide insightful suggestions for blockchain practitioners to build performant enterprise applications.
 
 ## Citation
-Removed for the double blind review process
+```
+@inproceedings{cfan2022besu,
+  title={Performance Analysis of Hyperledger Besu in Private Blockchain},
+  author={Fan, Caixiang and Lin, Changyuan and Khazaei, Hamzeh and Musilek, Petr},
+  booktitle={2022 IEEE International Conference on Decentralized Applications and Infrastructures (DAPPS)},
+  pages={1--10},
+  year={2022},
+  organization={IEEE}
+}
+```
 
 ## Acknowledgement
 This research was partially supported by the Digital Research Alliance of Canada (alliancecan.ca) and Cybera (cybera.ca) through their cloud services.
 
 ## License
-Removed for the double blind review process
+This artifact repository is licensed under the MIT license. Please refer to the LICENSE file for details.
